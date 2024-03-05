@@ -1,0 +1,62 @@
+{% extends "admin/core/base.html" %}
+{% load foundation %}
+{% load static %}
+
+{% block title %}Author Search{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+{% endblock breadcrumbs %}
+
+{% block body %}
+    <div class="box">
+        <div class="title-area">
+            <h2>Fuzzy Search Author Institutions</h2>
+        </div>
+        <div class="content">
+            <div class="row expanded">
+                <div class="large-6 columns">
+                    <form method="GET">
+                        <input name="search_term" type="text">
+                        <button class="button">Search Author Institutions
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <table class="table" id="frozen_authors">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Institution</th>
+                    <th>Date Published</th>
+                    <th>Article</th>
+                    <th>URL</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for fa in frozen_authors %}
+                    <tr>
+                        <td>{{ fa.full_name }}</td>
+                        <td>{{ fa.email }}</td>
+                        <td>{{ fa.institution }}</td>
+                        <td>{{ fa.article.date_published }}</td>
+                        <td>{{ fa.article.title }}</td>
+                        <td>{{ fa.article.url }}</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6">No frozen authors found.</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block js %}
+    {% include "elements/datatables.html" with target="#frozen_authors" %}
+{% endblock js %}
