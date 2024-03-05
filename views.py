@@ -15,6 +15,7 @@ def author_search_manager(request):
     template = 'author_search/index.html'
     context = {
         'frozen_authors': frozen_authors,
+        'search_term': search_term,
     }
     return render(
         request,
