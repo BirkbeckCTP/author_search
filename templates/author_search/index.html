@@ -30,6 +30,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Institution</th>
+                    <th>Stage</th>
                     <th>Date Published</th>
                     <th>Article</th>
                     <th>URL</th>
@@ -41,6 +42,7 @@
                         <td>{{ fa.full_name }}</td>
                         <td>{{ fa.email }}</td>
                         <td>{{ fa.institution }}</td>
+                        <td>{{ fa.article.get_stage_display }}</td>
                         <td>{{ fa.article.date_published }}</td>
                         <td>{{ fa.article.title|safe }}</td>
                         <td><a href="{{ fa.article.url }}">{{ fa.article.url }}</a></td>
