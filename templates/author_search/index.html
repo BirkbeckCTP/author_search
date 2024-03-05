@@ -42,8 +42,8 @@
                         <td>{{ fa.email }}</td>
                         <td>{{ fa.institution }}</td>
                         <td>{{ fa.article.date_published }}</td>
-                        <td>{{ fa.article.title }}</td>
-                        <td>{{ fa.article.url }}</td>
+                        <td>{{ fa.article.title|safe }}</td>
+                        <td><a href="{{ fa.article.url }}">{{ fa.article.url }}</a></td>
                     </tr>
                     {% empty %}
                     <tr>
