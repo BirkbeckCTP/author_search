@@ -30,6 +30,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Institution</th>
+                    <th>Group</th>
                     <th>Journal</th>
                 </tr>
                 </thead>
@@ -39,6 +40,7 @@
                         <td>{{ em.user.full_name }}</td>
                         <td>{{ em.user.email }}</td>
                         <td>{{ em.user.institution }}</td>
+                        <td>{{ em.group.name }}</td>
                         <td>{{ em.group.journal.name }}</td>
                     </tr>
                     {% empty %}
